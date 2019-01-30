@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   get "categories", to: "categories#index"
   post "categories", to: "categories#new"
+  delete "categories/:id", to: "categories#destroy", as: :category
 
 end

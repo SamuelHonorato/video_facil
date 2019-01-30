@@ -18,11 +18,15 @@
     <% @categories_all.each do |category| %>
       <tr>
         <td> <%= category.name %> </td>
+
         <% if category.favorite %>
           <td> Sim </td>
         <% else %>
           <td> Não </td>
         <% end %>
+
+        <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger" %> </td>
+
       </tr>
     <% end %>
   </tbody>
