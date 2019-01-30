@@ -8,6 +8,22 @@
 
 <br>
 
+<% if flash[:add] %>
+  <div class="alert alert-success" role=alert">
+    <%= flash[:add] %>
+  </div>
+<% end %>
+
+<% if flash[:remove] %>
+  <div class="alert alert-danger" role=alert">
+    <%= flash[:remove] %>
+  </div>
+<% end %>
+
+<% @category_new.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -26,7 +42,8 @@
         <% else %>
           <td> Não </td>
         <% end %>
-        <% message_confirm = "Ao remover a categoria #{category.name.upcase} todos os vídeos relacionados a ela serão perdidos. Remover?" %>
+        <% message_confirm = "Ao remover a categoria #{category.name.upcase} todos os vídeos relacionados serão perdidos. Remover?" %>
+
         <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger", data: {confirm: message_confirm } %> </td>
 
       </tr>

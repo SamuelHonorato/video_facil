@@ -7,18 +7,20 @@ class CategoriesController < ApplicationController
 
   def new
     value = params.require(:category).permit(:name, :favorite)
-    category = Category.new value
+    @category_new = Category.new value
 
-    if category.save
+    if @category_new.save
+      flash[:add] = "Categoria #{@category_new.name.upcase} adicionada com sucesso!"
       redirect_to categories_url
     else
-      redirect_to categories_url
+      render :index
     end
   end
 
   def destroy
     id = params[:id]
     Category.destroy id
+    flash[:remove] = "Categoria removida com sucesso!"
     redirect_to categories_url
   end
 
