@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
       flash[:add] = "Categoria #{@category_new.name.upcase} adicionada com sucesso!"
       redirect_to categories_url
     else
+      @categories_all = Category.order(created_at: :desc)
       render :index
     end
   end
