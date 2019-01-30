@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VideoFacil</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <%= nav_bar brand: "Vídeo Fácil", brand_link: categories_path %>
+    <div class="container">
+      <body>
+        <%= yield %>
+      </body>
+    </div>
+</html>
