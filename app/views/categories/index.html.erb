@@ -2,16 +2,18 @@
   <div class="form-inline">
     <%= form.text_field :name, placeholder: "Nome da Categoria", class: "form-control" %>
     <%= form.select :favorite, [['Sim', true], ['Não', false]], class: "form-control" %>
-    <%= form.submit "Adicionar", class: "form-control" %>
+    <%= form.submit "Adicionar", class: "btn btn-primary" %>
   </div>
 <% end %>
 
+<br>
 
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
       <td>Categoria</td>
       <td>Favorito</td>
+      <td colspan=1>
     </tr>
   </thead>
   <tbody>
