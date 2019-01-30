@@ -26,8 +26,8 @@
         <% else %>
           <td> Não </td>
         <% end %>
-
-        <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger" %> </td>
+        <% message_confirm = "Ao remover a categoria #{category.name.upcase} todos os vídeos relacionados a ela serão perdidos. Remover?" %>
+        <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger", data: {confirm: message_confirm } %> </td>
 
       </tr>
     <% end %>
