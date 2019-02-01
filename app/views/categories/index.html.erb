@@ -30,29 +30,34 @@
 
 <h3> Lista de Categorias </h3>
 
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <td>Categoria</td>
-      <td>Favorito</td>
-      <td colspan=1>
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories_all.each do |category| %>
+<% if @categories_all.length == 0 %>
+  Sem categorias
+
+<% else %>
+  <table class="table table-bordered table-hover">
+    <thead>
       <tr>
-        <td> <%= category.name %> </td>
-
-        <% if category.favorite %>
-          <td> Sim </td>
-        <% else %>
-          <td> Não </td>
-        <% end %>
-        <% message_confirm = "Ao remover a categoria #{category.name.upcase} todos os vídeos relacionados serão perdidos. Remover?" %>
-
-        <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger", data: {confirm: message_confirm } %> </td>
-
+        <td>Categoria</td>
+        <td>Favorito</td>
+        <td colspan=1>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @categories_all.each do |category| %>
+        <tr>
+          <td> <%= category.name %> </td>
+
+          <% if category.favorite %>
+            <td> Sim </td>
+          <% else %>
+            <td> Não </td>
+          <% end %>
+          <% message_confirm = "Ao remover a categoria #{category.name.upcase} todos os vídeos relacionados serão perdidos. Remover?" %>
+
+          <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger", data: {confirm: message_confirm } %> </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
