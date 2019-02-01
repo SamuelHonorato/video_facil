@@ -7,7 +7,7 @@
 <h3> Criar Categoria </h3>
 
 <%= form_for @category_new do |form| %>
-  <div class="form-group">
+  <div class="form-inline">
     <%= form.text_field :name, placeholder: "Nome da Categoria", class: "form-control" %>
     <%= form.select :favorite, [['Sim', true], ['Não', false]], class: "form-control" %>
     <%= form.submit "Adicionar", class: "btn btn-primary" %>
