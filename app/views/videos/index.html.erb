@@ -2,23 +2,25 @@
   <h4> Sem categorias favoritadas </h4>
 <% end %>
 
-<table class="table table-bordered table-hover">
-  <tbody>
-    <% @categories_favorite.each do |category| %>
-      <h3> <%= category.name %> </h3>
+<% @categories_favorite.each do |category| %>
 
-      <% if Video.where(category_id: category.id).length == 0 %>
+  <h3> <%= category.name %> (<%= category.videos.length %>)</h3>
+
+  <table class="table table-bordered table-hover" table-layout="fixed">
+    <tbody>
+      <% if category.videos.length == 0 %>
         Categoria sem vídeos salvos
       <% else %>
-        <% Video.where(category_id: category.id).each do |video| %>
+        <% category.videos.each do |video| %>
 
           <tr>
-            <td> <%= video.title %> </td>
+            <td width="75%"> <%= video.title %> </td>
             <td> <%= button_to "Visualizar", video, method: :get, class: "btn btn-primary" %> </td>
           </tr>
 
         <% end %>
+
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+<% end %>
