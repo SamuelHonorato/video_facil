@@ -9,10 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= nav_bar brand: "Vídeo Fácil", brand_link: categories_path %>
+  <body>
+
+    <%= nav_bar brand: "Vídeo Fácil", brand_link: root_path do %>
+      <%= menu_group do %>
+        <%= menu_item "Criar Vídeo", videos_path %>
+        <%= menu_item "Categorias", categories_path %>
+
+      <% end %>
+    <% end %>
+
     <div class="container">
-      <body>
-        <%= yield %>
-      </body>
+      <%= yield %>
     </div>
+  </body>
 </html>

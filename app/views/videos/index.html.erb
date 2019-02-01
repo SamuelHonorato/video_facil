@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h3>ola mundo</h3>
-  </body>
-</html>
+<table class="table table-bordered table-hover">
+  <tbody>
+    <% @categories_favorite.each do |category| %>
+      <h3> <%= category.name %> </h3>
+
+      <% Video.where(category_id: category.id).each do |video| %>
+
+        <tr>
+          <td> <%= video.title %> </td>
+          <td> <%= button_to "Visualizar", video, method: :get, class: "btn btn-primary" %> </td>
+        </tr>
+
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
