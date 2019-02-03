@@ -15,7 +15,7 @@
 
           <tr>
             <td width="75%">
-              <b> <%= video.title %> </b> <br>
+              <b> <%= link_to "#{video.title}", video, method: :get, style: 'color:#000000' %> </b> <br>
               <small> Comentários: <%= video.comments.length %> </small>
             </td>
             <td> <%= button_to "Visualizar", video, method: :get, class: "btn btn-primary" %> </td>

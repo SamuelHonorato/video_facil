@@ -4,10 +4,9 @@
 </iframe>
 
 <h3>Comentários</h3>
-<br>
 
 <% if @video_show.comments.length == 0 %>
-  Sem comentários
+  <p>Sem comentários</p>
 
 <% else %>
   <% @video_show.comments.each do |comment| %>
