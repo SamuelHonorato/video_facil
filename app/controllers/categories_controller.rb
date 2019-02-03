@@ -18,6 +18,11 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def show
+    
+
+  end
+
   def destroy
     id = params[:id]
     Category.destroy id

@@ -4,7 +4,7 @@
 
 <% @categories_favorite.each do |category| %>
 
-  <h3> <%= category.name %> (<%= category.videos.length %>)</h3>
+  <h3> <%= link_to "#{category.name}", category, method: :get, style: 'color:#000000' %> (<%= category.videos.length %>)</h3>
 
   <table class="table table-bordered table-hover" table-layout="fixed">
     <tbody>

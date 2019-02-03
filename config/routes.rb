@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   post "videos", to: "videos#create"
   delete "videos/:id", to: "videos#destroy"
 
+
   get "categories", to: "categories#index"
   post "categories", to: "categories#new"
   delete "categories/:id", to: "categories#destroy", as: :category
+  get "categories/:id", to: "categories#show"
 
   post "comments", to: "comments#new"
 
