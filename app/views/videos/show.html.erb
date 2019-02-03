@@ -3,17 +3,25 @@
 <iframe width="560" height="315" src=<%= @video_show.url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 
-<h4>Comentários</h4>
+<h3>Comentários</h3>
 
-<% @video_show.comments.each do |comment| %>
-  <%= comment.author %>
-  <%= comment.created_at.strftime("%d/%m/%Y %H:%M:%S") %>
-  <%= comment.message %>
-  <br>
+<% if @video_show.comments.length == 0 %>
+  Sem comentários
+
+<% else %>
+  <% @video_show.comments.each do |comment| %>
+    <b><%= comment.author %></b>
+    <small> < <%= comment.created_at.strftime("%d/%m/%Y %H:%M:%S") %> > </small>
+    <br>
+    <%= comment.message %>
+    <br>
+  <% end %>
 <% end %>
 
-<%= form_for @comment_new do |form| %>
+<br>
+<br>
 
+<%= form_for @comment_new do |form| %>
   <div class="form-group">
 
     <div class="form-group">
@@ -28,7 +36,5 @@
     </div>
 
     <%= form.submit "Comentar", class: "btn btn-primary" %>
-
   </div>
-
 <% end %>
