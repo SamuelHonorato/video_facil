@@ -28,7 +28,13 @@ class VideosController < ApplicationController
     id = params[:id]
     @video_show = Video.where(id: id).first
     @comment_new = Comment.new
-    
+
+  end
+
+  def destroy
+    id = params[:id]
+    Video.destroy id
+    redirect_to root_url
   end
 
 end

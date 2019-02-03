@@ -16,6 +16,7 @@
           <tr>
             <td width="75%"> <%= video.title %> </td>
             <td> <%= button_to "Visualizar", video, method: :get, class: "btn btn-primary" %> </td>
+            <td> <%= button_to "Remover", video, method: :delete, class: "btn btn-danger", data: {confirm: "Tem certeza que deseja remover #{video.title}?" } %> </td>
           </tr>
 
         <% end %>
