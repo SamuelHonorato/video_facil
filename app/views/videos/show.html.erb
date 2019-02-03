@@ -4,21 +4,22 @@
 </iframe>
 
 <h3>Comentários</h3>
+<br>
 
 <% if @video_show.comments.length == 0 %>
   Sem comentários
 
 <% else %>
   <% @video_show.comments.each do |comment| %>
-    <b><%= comment.author %></b>
-    <small> < <%= comment.created_at.strftime("%d/%m/%Y %H:%M:%S") %> > </small>
-    <br>
-    <%= comment.message %>
-    <br>
+    <div class="form-group">
+      <b><%= comment.author %></b>
+      <small> < <%= comment.created_at.strftime("%d/%m/%Y %H:%M:%S") %> > </small>
+      <br>
+      <%= comment.message %>
+    </div>
   <% end %>
 <% end %>
 
-<br>
 <br>
 
 <%= form_for @comment_new do |form| %>
