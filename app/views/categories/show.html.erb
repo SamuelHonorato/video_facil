@@ -7,7 +7,7 @@
     <% @category_show.videos.each do |video| %>
       <div class="form-group">
 
-        <h4> <%= video.title %> </h4>
+        <h4> <%= link_to "#{video.title}", video, method: :get, style: 'color:#000000' %> </b> </h4>
         <iframe width="560" height="315" src=<%= video.url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe> <br>
         <small> Comentários: <%= video.comments.length %> </small>
