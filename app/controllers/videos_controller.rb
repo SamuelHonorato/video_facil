@@ -27,7 +27,8 @@ class VideosController < ApplicationController
   def show
     id = params[:id]
     @video_show = Video.where(id: id).first
-
+    @comment_new = Comment.new
+    
   end
 
 end

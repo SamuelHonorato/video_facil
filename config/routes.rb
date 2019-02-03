@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   post "categories", to: "categories#new"
   delete "categories/:id", to: "categories#destroy", as: :category
 
+  post "comments", to: "comments#new"
+
 end
