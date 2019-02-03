@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    teste
-  </body>
-</html>
+<h2> <%= @category_show.name %></h2>
+
+<% if @category_show.videos.length == 0 %>
+  <p>Categoria não possui vídeos </p>
+<% else %>
+  <div class="form-inline">
+    <% @category_show.videos.each do |video| %>
+      <div class="form-group">
+
+        <h4> <%= video.title %> </h4>
+        <iframe width="560" height="315" src=<%= video.url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> <br>
+        <small> Comentários: <%= video.comments.length %> </small>
+      </div>
+
+
+    <% end %>
+  </div>
+
+<% end %>
