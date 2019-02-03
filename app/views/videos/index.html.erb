@@ -11,7 +11,7 @@
       <% if category.videos.length == 0 %>
         Categoria sem vídeos salvos
       <% else %>
-        <% category.videos.each do |video| %>
+        <% category.videos.order(created_at: :desc).each do |video| %>
 
           <tr>
             <td width="75%">

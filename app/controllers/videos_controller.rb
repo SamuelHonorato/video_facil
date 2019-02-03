@@ -11,17 +11,24 @@ class VideosController < ApplicationController
 
   def create
     value = params.require(:video).permit(:title, :url, :category_id)
-    if value[:url].include? "="
+
+    if (value[:url].include? "=") && (value[:url].length != 0)
       value[:url] = value[:url].split('=').last
-    else
+      value[:url] = "https://www.youtube.com/embed/#{value[:url]}"
+    elsif (value[:url].include? "/") && (value[:url].length != 0)
       value[:url] = value[:url].split('/').last
+      value[:url] = "https://www.youtube.com/embed/#{value[:url]}"
     end
 
-    value[:url] = "https://www.youtube.com/embed/#{value[:url]}"
+    @video_new = Video.new value
 
-    Video.create value
-
-    redirect_to root_url
+    if @video_new.save
+      flash[:video_add] = "Video criado com sucesso."
+      redirect_to videos_path
+    else
+      @category_all = Category.order(name: :asc)
+      render :new
+    end
   end
 
   def show
