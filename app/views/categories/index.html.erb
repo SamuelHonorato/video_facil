@@ -43,7 +43,7 @@
       <tr>
         <td>Categoria</td>
         <td>Favorito</td>
-        <td colspan=1>
+        <td colspan=2>
       </tr>
     </thead>
     <tbody>
@@ -60,9 +60,20 @@
           <% else %>
             <td> Não </td>
           <% end %>
+
           <% message_confirm = "Ao remover a categoria #{category.name.upcase} todos os vídeos relacionados serão perdidos. Remover?" %>
 
           <td> <%= button_to "Remover", category, method: :delete, class: "btn btn-danger", data: {confirm: message_confirm } %> </td>
+
+          <% favorite_field = "" %>
+
+          <% if category.favorite %>
+            <% favorite_field = "Desfavoritar" %>
+          <% else %>
+            <% favorite_field = "Favoritar" %>
+          <% end %>
+
+          <td> <%= button_to favorite_field, category_edit_path(category), method: :get, class: "btn btn-info active"  %> </td>
 
         </tr>
       <% end %>

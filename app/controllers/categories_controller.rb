@@ -23,6 +23,16 @@ class CategoriesController < ApplicationController
     @category_show = Category.where(id: id).first
   end
 
+  def edit
+    id = params[:id]
+    category = Category.where(id: id).first
+    category[:favorite] = !category[:favorite]
+    category.save
+
+    redirect_to categories_url
+
+  end
+
   def destroy
     id = params[:id]
     Category.destroy id
