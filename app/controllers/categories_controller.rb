@@ -21,7 +21,6 @@ class CategoriesController < ApplicationController
   def show
     id = params[:id]
     @category_show = Category.where(id: id).first
-
   end
 
   def destroy

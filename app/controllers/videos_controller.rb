@@ -23,7 +23,7 @@ class VideosController < ApplicationController
     @video_new = Video.new value
 
     if @video_new.save
-      flash[:video_add] = "Video criado com sucesso."
+      flash[:video_add] = "Vídeo criado com sucesso."
       redirect_to videos_path
     else
       @category_all = Category.order(name: :asc)
@@ -35,7 +35,6 @@ class VideosController < ApplicationController
     id = params[:id]
     @video_show = Video.where(id: id).first
     @comment_new = Comment.new
-
   end
 
   def destroy
