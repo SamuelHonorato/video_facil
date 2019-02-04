@@ -25,8 +25,8 @@ module Api
   					status: :ok
         else
           render json: {
-            status: "error",
-            code: 400,
+            status: "ERRORS",
+            code: 500,
             message: "Categoria não encontrada"
           }
         end
